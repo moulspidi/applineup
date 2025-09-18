@@ -1,0 +1,53 @@
+name: Android APK (Debug)
+
+on:
+  push: { branches: [ main ] }
+  pull_request: { branches: [ main ] }
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      # Instala SDK de Android y acepta licencias
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: |
+            platform-tools
+            platforms;android-34
+            build-tools;34.0.0
+
+      # Construye con Gradle 8.7 (no hace falta wrapper local)
+      - name: Build (Debug)
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 8.7
+          arguments: |
+            --no-daemon
+            --stacktrace
+            --info
+            --warning-mode=all
+            -Pkotlin.compiler.execution.strategy=in-process
+            clean
+            assembleDebug
+
+      - name: List APKs
+        run: ls -R app/build/outputs/apk || true
+
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
