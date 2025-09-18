@@ -1,0 +1,10 @@
+<style name="RotationCell">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">80dp</item>
+    <item name="android:layout_margin">6dp</item>
+    <item name="android:gravity">center</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textSize">28sp</item>
+    <item name="android:background">@drawable/bg_cell_court</item>
+    <item name="android:layout_columnWeight">1</item>
+</style>
