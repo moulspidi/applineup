@@ -1,12 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="12dp"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.journeyapps.barcodescanner.DecoratedBarcodeView
-        android:id="@+id/barcode_scanner"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</LinearLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:navigationIcon="@drawable/ic_arrow_back_24"
+        app:title="LineUp Scanner - Árbitros"
+        app:titleCentered="true"
+        app:titleTextColor="@android:color/white"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Selector de SET -->
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/tgSets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+                app:selectionRequired="true"
+                android:layout_marginBottom="16dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSet1"
+                    style="@style/Widget.Material3.Button.FilledTonal"
+                    android:text="SET 1"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSet2"
+                    style="@style/Widget.Material3.Button.FilledTonal"
+                    android:text="SET 2"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSet3"
+                    style="@style/Widget.Material3.Button.FilledTonal"
+                    android:text="SET 3"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSet4"
+                    style="@style/Widget.Material3.Button.FilledTonal"
+                    android:text="SET 4"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSet5"
+                    style="@style/Widget.Material3.Button.FilledTonal"
+                    android:text="SET 5"/>
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <!-- Tarjeta Equipo A -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|space_between">
+                        <TextView
+                            android:id="@+id/lblTeamA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Equipo A"
+                            android:textStyle="bold"
+                            android:textSize="18sp"/>
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnScanA"
+                            style="@style/Widget.Material3.Button.Filled"
+                            android:text="ESCANEAR A"
+                            app:icon="@drawable/ic_camera_24"
+                            app:iconGravity="textStart"/>
+                    </LinearLayout>
+
+                    <GridLayout
+                        android:id="@+id/gridA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:columnCount="3"
+                        android:rowCount="2">
+
+                        <!-- 6 celdas (orden de rotación: I II III / VI V IV) -->
+                        <TextView style="@style/RotationCell" android:id="@+id/a1"/>
+                        <TextView style="@style/RotationCell" android:id="@+id/a2"/>
+                        <TextView style="@style/RotationCell" android:id="@+id/a3"/>
+                        <TextView style="@style/RotationCell" android:id="@+id/a4"/>
+                        <TextView style="@style/RotationCell" android:id="@+id/a5"/>
+                        <TextView style="@style/RotationCell" android:id="@+id/a6"/>
+                    </GridLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Tarjeta Equipo B -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|space_between">
+                        <TextView
+                            android:id="@+id/lblTeamB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Equipo B"
+                            android:textStyle="bold"
+                            android:textSize="18sp"/>
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnScanB"
+                            style="@style/Widget.Material3.Button.Filled"
+                            android:text="ESCANEAR B"
+                            app:icon="@drawable/ic_camera_24"
+                            app:iconGravity="textStart"/>
+                    </LinearLayout>
+
+                    <GridLayout
+                        android:id="@+id/gridB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:columnCount="3"
+                        android:rowCount="2">
+
+                        <TextView style="@style/RotationCell" android:id="@+id/b1"/>
+                        <TextView style="@style/RotationCell" android:id="@+id/b2"/>
+                        <TextView style="@style/RotationCell" android:id="@+id/b3"/>
+                        <TextView style="@style/RotationCell" android:id="@+id/b4"/>
+                        <TextView style="@style/RotationCell" android:id="@+id/b5"/>
+                        <TextView style="@style/RotationCell" android:id="@+id/b6"/>
+                    </GridLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
