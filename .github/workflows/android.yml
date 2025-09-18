@@ -9,6 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+      ANDROID_HOME: /usr/local/lib/android/sdk
+      JAVA_TOOL_OPTIONS: -Xmx3g
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,16 +24,13 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      # Instala SDK de Android y acepta licencias
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          packages: |
-            platform-tools
-            platforms;android-34
-            build-tools;34.0.0
+      # (Opcional) Ver qué SDK/Build-tools ya están en el runner
+      - name: Show installed Android SDK packages
+        run: |
+          "${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager" --list || true
+          ls -R "${ANDROID_SDK_ROOT}/build-tools" || true
+          ls -R "${ANDROID_SDK_ROOT}/platforms" || true
 
-      # Construye con Gradle 8.7 (no hace falta wrapper local)
       - name: Build (Debug)
         uses: gradle/gradle-build-action@v2
         with:
