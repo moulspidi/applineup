@@ -75,30 +75,30 @@
                 <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="IV">
-                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/edIV" android:inputType="text"/>
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/edIV" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text"/>
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" android:hint="III">
-                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/edIII" android:inputType="text"/>
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/edIII" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text"/>
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" android:hint="II">
-                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/edII" android:inputType="text"/>
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/edII" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
                 <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp">
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="V">
-                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/edV" android:inputType="text"/>
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/edV" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text"/>
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" android:hint="VI">
-                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/edVI" android:inputType="text"/>
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/edVI" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text"/>
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" android:hint="I">
-                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/edI" android:inputType="text"/>
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/edI" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </LinearLayout>
