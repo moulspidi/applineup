@@ -1,0 +1,7 @@
+<resources>
+    <color name="fv_primary">#1976D2</color>
+    <color name="fv_accent">#D32F2F</color>
+    <color name="fv_bg">#1E1E1E</color>
+    <color name="fv_text_light">#FFFFFF</color>
+    <color name="fv_text_muted">#CCCCCC</color>
+</resources>
