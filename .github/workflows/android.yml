@@ -31,6 +31,12 @@ jobs:
           ls -R "${ANDROID_SDK_ROOT}/build-tools" || true
           ls -R "${ANDROID_SDK_ROOT}/platforms" || true
 
+      - name: Ensure Android SDK Platform 34 and Build-tools 34.0.0
+        run: |
+          yes | "${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager" --licenses || true
+          yes | "${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager" \
+            "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+
       - name: Build (Debug)
         uses: gradle/gradle-build-action@v2
         with:
@@ -46,7 +52,7 @@ jobs:
 
       - name: List APKs
         run: ls -R app/build/outputs/apk || true
-
+     
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
